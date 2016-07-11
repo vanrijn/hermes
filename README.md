@@ -1,7 +1,22 @@
 Hermes
 ======
 
+
+[![Build Status](https://travis-ci.org/HermesApp/Hermes.svg?branch=master)](https://travis-ci.org/HermesApp/Hermes)
+
 A [Pandora](http://www.pandora.com) client for OS X.
+
+### THIS PROJECT IS UNMAINTAINED
+
+This means that bugs will not be fixed and features will not be added unless someone else does so.  Unfortunately, the former maintainers no longer have the time and/or resources to work on Hermes further.
+
+If you're interested in fixing up Hermes, please reply to this [GitHub issue (237)](https://github.com/HermesApp/Hermes/issues/237).
+
+### Download Hermes
+
+Visit the official website [hermesapp.org](http://hermesapp.org/) and click download.
+
+If you wish to compile Hermes, continue reading.
 
 ### Develop against Hermes
 
@@ -11,7 +26,7 @@ ways you can develop against Hermes if you really want to.
 1. `NSDistributedNotificationCenter` - Every time a new song plays, a
    notification is posted with the name `hermes.song` under the object `hermes`
    with `userInfo` as a dictionary representing the song being played. See
-   [Song.m](https://github.com/alexcrichton/hermes/blob/master/Classes/Pandora/Song.m#L40)
+   [Song.m](https://github.com/HermesApp/Hermes/blob/master/Sources/Pandora/Song.m#L29)
    for the keys available to you.
 
 2. AppleScript - here's an example script:
@@ -35,8 +50,8 @@ ways you can develop against Hermes if you really want to.
           unmute        -- unmutes the volume to the last state from mute
 
           -- integer 0 to 100 for the volume
-          get current volume
-          set current volume to 92
+          get playback volume
+          set playback volume to 92
 
           -- Working with the current station
           set stationName to the current station's name
@@ -52,11 +67,11 @@ ways you can develop against Hermes if you really want to.
 
 ### Want something new/fixed?
 
-1. [Open a ticket](https://github.com/alexcrichton/hermes/issues)! I'll get
-   around to it soon, especially if it sounds appealing to me. I take all
+1. [Open a ticket](https://github.com/HermesApp/Hermes/issues)! We'll get
+   around to it soon, especially if it sounds appealing to us. We take all
    suggestions/feedback!
 
-2. Take a stab at it yourself if you're brave. Just send me a pull request if
+2. Take a stab at it yourself if you're brave. Just send us a pull request if
    you've got something fixed. Here's some common things to do at the command
    line:
 
@@ -67,7 +82,11 @@ ways you can develop against Hermes if you really want to.
         # Build with the 'Release' configuration instead of 'Debug'
         make CONFIGURATION=Release [run|dbg]
 
+   Please note that Media Key shortcuts
+   [will not work](https://github.com/nevyn/SPMediaKeyTap/blob/master/SPMediaKeyTap.m#L108)
+   if compiled with `CONFIGURATION=Debug` (the default).
+
 ## License
 
 Code is available under the [MIT
-License](https://github.com/alexcrichton/hermes/blob/master/LICENSE).
+License](https://github.com/HermesApp/Hermes/blob/master/LICENSE).
